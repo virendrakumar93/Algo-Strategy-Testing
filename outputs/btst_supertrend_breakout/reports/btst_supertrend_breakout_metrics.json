@@ -1,0 +1,159 @@
+{
+  "core": {
+    "total_return": 351627.5,
+    "total_return_pct": 35.16,
+    "cagr_pct": 3.07,
+    "win_rate_pct": 53.06,
+    "risk_reward_ratio": 1.2104,
+    "expectancy": 467.59,
+    "max_drawdown_pct": -4.25,
+    "max_drawdown_abs": -42470.0,
+    "max_drawdown_duration_days": 1145,
+    "return_over_mdd": 8.2815
+  },
+  "trade": {
+    "total_trades": 752,
+    "winning_trades": 399,
+    "losing_trades": 353,
+    "avg_win": 3274.94,
+    "avg_loss": -2705.59,
+    "profit_factor": 1.3682,
+    "gross_profit": 1306702.5,
+    "gross_loss": 955075.0,
+    "largest_win": 47087.5,
+    "largest_loss": -22985.0,
+    "avg_pnl_per_trade": 467.59,
+    "long_trades": 425,
+    "short_trades": 327
+  },
+  "yearly": [
+    {
+      "year": 2016,
+      "num_trades": 47,
+      "total_pnl": -21727.5,
+      "return_pct": -2.17,
+      "win_rate_pct": 48.94,
+      "profit_factor": 0.5181,
+      "avg_pnl": -462.29,
+      "long_trades": 23,
+      "short_trades": 24
+    },
+    {
+      "year": 2017,
+      "num_trades": 65,
+      "total_pnl": -17580.0,
+      "return_pct": -1.76,
+      "win_rate_pct": 41.54,
+      "profit_factor": 0.6423,
+      "avg_pnl": -270.46,
+      "long_trades": 35,
+      "short_trades": 30
+    },
+    {
+      "year": 2018,
+      "num_trades": 78,
+      "total_pnl": 16835.0,
+      "return_pct": 1.68,
+      "win_rate_pct": 53.85,
+      "profit_factor": 1.2551,
+      "avg_pnl": 215.83,
+      "long_trades": 45,
+      "short_trades": 33
+    },
+    {
+      "year": 2019,
+      "num_trades": 75,
+      "total_pnl": -1470.0,
+      "return_pct": -0.15,
+      "win_rate_pct": 48.0,
+      "profit_factor": 0.9782,
+      "avg_pnl": -19.6,
+      "long_trades": 42,
+      "short_trades": 33
+    },
+    {
+      "year": 2020,
+      "num_trades": 83,
+      "total_pnl": 69675.0,
+      "return_pct": 6.97,
+      "win_rate_pct": 57.83,
+      "profit_factor": 1.7269,
+      "avg_pnl": 839.46,
+      "long_trades": 55,
+      "short_trades": 28
+    },
+    {
+      "year": 2021,
+      "num_trades": 78,
+      "total_pnl": 28620.0,
+      "return_pct": 2.86,
+      "win_rate_pct": 57.69,
+      "profit_factor": 1.2332,
+      "avg_pnl": 366.92,
+      "long_trades": 42,
+      "short_trades": 36
+    },
+    {
+      "year": 2022,
+      "num_trades": 78,
+      "total_pnl": 126055.0,
+      "return_pct": 12.61,
+      "win_rate_pct": 57.69,
+      "profit_factor": 2.0787,
+      "avg_pnl": 1616.09,
+      "long_trades": 44,
+      "short_trades": 34
+    },
+    {
+      "year": 2023,
+      "num_trades": 80,
+      "total_pnl": 7540.0,
+      "return_pct": 0.75,
+      "win_rate_pct": 51.25,
+      "profit_factor": 1.0684,
+      "avg_pnl": 94.25,
+      "long_trades": 48,
+      "short_trades": 32
+    },
+    {
+      "year": 2024,
+      "num_trades": 67,
+      "total_pnl": 55842.5,
+      "return_pct": 5.58,
+      "win_rate_pct": 61.19,
+      "profit_factor": 1.5819,
+      "avg_pnl": 833.47,
+      "long_trades": 39,
+      "short_trades": 28
+    },
+    {
+      "year": 2025,
+      "num_trades": 83,
+      "total_pnl": 99325.0,
+      "return_pct": 9.93,
+      "win_rate_pct": 54.22,
+      "profit_factor": 1.8053,
+      "avg_pnl": 1196.69,
+      "long_trades": 44,
+      "short_trades": 39
+    },
+    {
+      "year": 2026,
+      "num_trades": 18,
+      "total_pnl": -11487.5,
+      "return_pct": -1.15,
+      "win_rate_pct": 33.33,
+      "profit_factor": 0.8157,
+      "avg_pnl": -638.19,
+      "long_trades": 8,
+      "short_trades": 10
+    }
+  ],
+  "summary": {
+    "initial_capital": 1000000.0,
+    "final_equity": 1351627.5,
+    "backtest_start": "2016-03-30 15:28:00+05:30",
+    "backtest_end": "2026-03-19 09:17:00+05:30",
+    "backtest_duration_years": 9.97
+  }
+}

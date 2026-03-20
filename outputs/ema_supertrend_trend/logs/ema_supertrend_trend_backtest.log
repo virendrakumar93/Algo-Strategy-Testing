@@ -1,0 +1,21 @@
+2026-03-20 10:17:23 | INFO     | __main__                       | ======================================================================
+2026-03-20 10:17:23 | INFO     | __main__                       | BACKTESTING FRAMEWORK — EMA_SUPERTREND_TREND
+2026-03-20 10:17:23 | INFO     | __main__                       | ======================================================================
+2026-03-20 10:17:23 | INFO     | __main__                       | Configuration loaded from: config.yaml
+2026-03-20 10:17:23 | INFO     | __main__                       | Instrument: NIFTY (futures)
+2026-03-20 10:17:23 | INFO     | __main__                       | Strategy: ema_supertrend_trend
+2026-03-20 10:17:23 | INFO     | __main__                       | Analysis Mode: backtest
+2026-03-20 10:17:23 | INFO     | __main__                       | Initial Capital: ₹2,000,000
+2026-03-20 10:17:23 | INFO     | __main__                       | Lot Size: 50
+2026-03-20 10:17:23 | INFO     | __main__                       | ----------------------------------------
+2026-03-20 10:17:23 | INFO     | __main__                       | STEP 1: Data Pipeline (futures → NIFTY)
+2026-03-20 10:17:23 | INFO     | __main__                       | ----------------------------------------
+2026-03-20 10:17:25 | INFO     | backtester.instruments.base    | Loading instrument handler: futures (FuturesInstrument)
+2026-03-20 10:17:25 | INFO     | backtester.instruments.base    | Running futures pipeline for NIFTY
+2026-03-20 10:17:25 | INFO     | backtester.instruments.futures | Fetching futures data for NIFTY (expiry=2026-03-26)
+2026-03-20 10:17:25 | INFO     | backtester.data.fetcher        | Fetching 60 chunks from Kite API (2016-03-22 to 2026-03-20)
+2026-03-20 10:17:26 | WARNING  | backtester.data.fetcher        | Fetch attempt 1 failed for 2016-03-22 to 2016-05-21: Incorrect `api_key` or `access_token`.
+2026-03-20 10:17:26 | INFO     | backtester.data.fetcher        | Retrying in 2 seconds...
+2026-03-20 10:17:28 | WARNING  | backtester.data.fetcher        | Fetch attempt 2 failed for 2016-03-22 to 2016-05-21: Incorrect `api_key` or `access_token`.
+2026-03-20 10:17:28 | INFO     | backtester.data.fetcher        | Retrying in 4 seconds...
+2026-03-20 10:17:33 | WARNING  | backtester.data.fetcher        | Fetch attempt 3 failed for 2016-03-22 to 2016-05-21: Incorrect `api_key` or `access_token`.

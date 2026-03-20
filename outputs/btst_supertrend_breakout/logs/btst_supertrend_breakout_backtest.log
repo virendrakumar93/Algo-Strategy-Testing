@@ -1,0 +1,75 @@
+2026-03-19 22:01:24 | INFO     | __main__                       | ======================================================================
+2026-03-19 22:01:24 | INFO     | __main__                       | BACKTESTING FRAMEWORK — BTST_SUPERTREND_BREAKOUT
+2026-03-19 22:01:24 | INFO     | __main__                       | ======================================================================
+2026-03-19 22:01:24 | INFO     | __main__                       | Configuration loaded from: config.yaml
+2026-03-19 22:01:24 | INFO     | __main__                       | Strategy: btst_supertrend_breakout
+2026-03-19 22:01:24 | INFO     | __main__                       | Initial Capital: ₹1,000,000
+2026-03-19 22:01:24 | INFO     | __main__                       | Lot Size: 50
+2026-03-19 22:01:24 | INFO     | __main__                       | ----------------------------------------
+2026-03-19 22:01:24 | INFO     | __main__                       | STEP 1: Data Loading
+2026-03-19 22:01:24 | INFO     | __main__                       | ----------------------------------------
+2026-03-19 22:01:25 | INFO     | backtester.data.fetcher        | Fetching 60 chunks from Kite API (2016-03-21 to 2026-03-19)
+2026-03-19 22:01:41 | INFO     | backtester.data.fetcher        | Progress: 10/60 chunks fetched
+2026-03-19 22:02:00 | INFO     | backtester.data.fetcher        | Progress: 20/60 chunks fetched
+2026-03-19 22:02:21 | INFO     | backtester.data.fetcher        | Progress: 30/60 chunks fetched
+2026-03-19 22:02:37 | INFO     | backtester.data.fetcher        | Progress: 40/60 chunks fetched
+2026-03-19 22:02:53 | INFO     | backtester.data.fetcher        | Progress: 50/60 chunks fetched
+2026-03-19 22:03:09 | INFO     | backtester.data.fetcher        | Progress: 60/60 chunks fetched
+2026-03-19 22:03:09 | INFO     | backtester.data.fetcher        | Fetched and cached 909492 rows (2016-03-22 09:15:00+05:30 to 2026-03-19 15:29:00+05:30)
+2026-03-19 22:03:09 | INFO     | __main__                       | Raw data loaded: 909492 rows
+2026-03-19 22:03:09 | INFO     | __main__                       | ----------------------------------------
+2026-03-19 22:03:09 | INFO     | __main__                       | STEP 2: Data Processing
+2026-03-19 22:03:09 | INFO     | __main__                       | ----------------------------------------
+2026-03-19 22:03:09 | INFO     | backtester.data.processor      | Cleaning OHLCV data: 909492 rows
+2026-03-19 22:03:09 | INFO     | backtester.data.processor      | Removed 615 invalid/out-of-hours rows
+2026-03-19 22:03:09 | INFO     | backtester.data.processor      | Clean data: 908877 rows, 2016-03-22 09:15:00+05:30 to 2026-03-19 15:29:00+05:30
+2026-03-19 22:03:10 | WARNING  | backtester.data.processor      | Detected 4 partial trading days (<187 candles): [datetime.date(2021, 2, 24), datetime.date(2024, 3, 2), datetime.date(2024, 5, 18), datetime.date(2025, 10, 21)]
+2026-03-19 22:03:10 | INFO     | backtester.data.processor      | Gap report: 4 partial days detected
+2026-03-19 22:03:10 | INFO     | __main__                       | Processed data: 908877 rows
+2026-03-19 22:03:10 | INFO     | __main__                       | ----------------------------------------
+2026-03-19 22:03:10 | INFO     | __main__                       | STEP 3: Feature Engineering
+2026-03-19 22:03:10 | INFO     | __main__                       | ----------------------------------------
+2026-03-19 22:03:10 | INFO     | backtester.data.features       | Starting feature engineering pipeline
+2026-03-19 22:03:12 | INFO     | backtester.data.features       | Computed Supertrend(10, 2.0)
+2026-03-19 22:03:12 | INFO     | backtester.data.features       | Computed previous day high/low
+2026-03-19 22:03:12 | INFO     | backtester.data.features       | Dropped 375 warmup rows with NaN features
+2026-03-19 22:03:12 | INFO     | backtester.data.features       | Feature engineering complete: 908502 rows, columns=['open', 'high', 'low', 'close', 'volume', 'supertrend', 'supertrend_direction', 'prev_day_high', 'prev_day_low']
+2026-03-19 22:03:12 | INFO     | __main__                       | Feature-enriched data: 908502 rows, 9 columns
+2026-03-19 22:03:12 | INFO     | __main__                       | ----------------------------------------
+2026-03-19 22:03:12 | INFO     | __main__                       | STEP 4: Strategy Signal Generation
+2026-03-19 22:03:12 | INFO     | __main__                       | ----------------------------------------
+2026-03-19 22:03:12 | INFO     | backtester.strategies.base     | Loading strategy: btst_supertrend_breakout (BTSTSupertrendStrategy)
+2026-03-19 22:03:12 | INFO     | backtester.strategies.btst_supertrend | Generating signals for 2426 trading days (2016-03-23 to 2026-03-19)
+2026-03-19 22:04:24 | INFO     | backtester.strategies.btst_supertrend | Generated 752 trades: 425 LONG, 327 SHORT
+2026-03-19 22:04:24 | INFO     | __main__                       | Strategy signals: 752 trades generated
+2026-03-19 22:04:24 | INFO     | __main__                       | ----------------------------------------
+2026-03-19 22:04:24 | INFO     | __main__                       | STEP 5: Backtest Execution
+2026-03-19 22:04:24 | INFO     | __main__                       | ----------------------------------------
+2026-03-19 22:04:24 | INFO     | backtester.engines.backtest    | Running backtest: 752 trades, capital=1000000, slippage=0.50, brokerage=20.00, lot=50
+2026-03-19 22:04:24 | INFO     | backtester.engines.backtest    | Backtest complete: 752 trades, final equity=1351627.50, total return=35.16%
+2026-03-19 22:04:24 | INFO     | __main__                       | ----------------------------------------
+2026-03-19 22:04:24 | INFO     | __main__                       | STEP 6: Performance Analytics
+2026-03-19 22:04:24 | INFO     | __main__                       | ----------------------------------------
+2026-03-19 22:04:24 | INFO     | backtester.analytics.metrics   | Metrics computed: CAGR=3.07%, Win Rate=53.1%, MDD=-4.25%, Trades=752
+2026-03-19 22:04:24 | INFO     | __main__                       | ----------------------------------------
+2026-03-19 22:04:24 | INFO     | __main__                       | STEP 7: Generating Visualizations
+2026-03-19 22:04:24 | INFO     | __main__                       | ----------------------------------------
+2026-03-19 22:04:24 | INFO     | backtester.outputs.manager     | Output directories created under: C:\Users\viren\Downloads\Algo strategy\.claude\worktrees\pensive-khayyam\outputs\btst_supertrend_breakout
+2026-03-19 22:04:25 | INFO     | backtester.visualization.plots | Equity curve saved: C:\Users\viren\Downloads\Algo strategy\.claude\worktrees\pensive-khayyam\outputs\btst_supertrend_breakout\plots\btst_supertrend_breakout_equity.html
+2026-03-19 22:04:25 | INFO     | backtester.visualization.plots | Drawdown curve saved: C:\Users\viren\Downloads\Algo strategy\.claude\worktrees\pensive-khayyam\outputs\btst_supertrend_breakout\plots\btst_supertrend_breakout_drawdown.html
+2026-03-19 22:04:25 | INFO     | backtester.visualization.plots | Yearly returns chart saved: C:\Users\viren\Downloads\Algo strategy\.claude\worktrees\pensive-khayyam\outputs\btst_supertrend_breakout\plots\btst_supertrend_breakout_yearly_returns.html
+2026-03-19 22:04:25 | INFO     | backtester.visualization.plots | Trade P&L chart saved: C:\Users\viren\Downloads\Algo strategy\.claude\worktrees\pensive-khayyam\outputs\btst_supertrend_breakout\plots\btst_supertrend_breakout_trade_pnl.html
+2026-03-19 22:04:25 | INFO     | backtester.visualization.plots | All plots saved to C:\Users\viren\Downloads\Algo strategy\.claude\worktrees\pensive-khayyam\outputs\btst_supertrend_breakout\plots (4 files)
+2026-03-19 22:04:25 | INFO     | __main__                       | ----------------------------------------
+2026-03-19 22:04:25 | INFO     | __main__                       | STEP 8: Saving Outputs
+2026-03-19 22:04:25 | INFO     | __main__                       | ----------------------------------------
+2026-03-19 22:04:25 | INFO     | backtester.outputs.manager     | Trade log saved: C:\Users\viren\Downloads\Algo strategy\.claude\worktrees\pensive-khayyam\outputs\btst_supertrend_breakout\trades\btst_supertrend_breakout_trades.csv (752 trades)
+2026-03-19 22:04:25 | INFO     | backtester.outputs.manager     | Metrics JSON saved: C:\Users\viren\Downloads\Algo strategy\.claude\worktrees\pensive-khayyam\outputs\btst_supertrend_breakout\reports\btst_supertrend_breakout_metrics.json
+2026-03-19 22:04:25 | INFO     | backtester.outputs.manager     | Metrics CSV saved: C:\Users\viren\Downloads\Algo strategy\.claude\worktrees\pensive-khayyam\outputs\btst_supertrend_breakout\reports\btst_supertrend_breakout_metrics.csv
+2026-03-19 22:04:25 | INFO     | backtester.outputs.manager     | Yearly metrics CSV saved: C:\Users\viren\Downloads\Algo strategy\.claude\worktrees\pensive-khayyam\outputs\btst_supertrend_breakout\reports\btst_supertrend_breakout_yearly.csv
+2026-03-19 22:04:25 | INFO     | backtester.outputs.manager     | Equity curve saved: C:\Users\viren\Downloads\Algo strategy\.claude\worktrees\pensive-khayyam\outputs\btst_supertrend_breakout\reports\btst_supertrend_breakout_equity_curve.csv
+2026-03-19 22:04:25 | INFO     | backtester.outputs.manager     | All outputs saved. Files: ['trade_log', 'metrics_json', 'metrics_csv', 'equity_curve']
+2026-03-19 22:04:25 | INFO     | __main__                       | ======================================================================
+2026-03-19 22:04:25 | INFO     | __main__                       | BACKTEST COMPLETE — 181.10 seconds
+2026-03-19 22:04:25 | INFO     | __main__                       | Outputs saved to: C:\Users\viren\Downloads\Algo strategy\.claude\worktrees\pensive-khayyam\outputs\btst_supertrend_breakout
+2026-03-19 22:04:25 | INFO     | __main__                       | ======================================================================

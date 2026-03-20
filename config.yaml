@@ -1,0 +1,290 @@
+# =============================================================================
+# Backtesting Framework Configuration
+# =============================================================================
+# This config supports multi-instrument, multi-strategy analysis.
+# Uncomment and modify the template sections below for your use case.
+# =============================================================================
+
+api:
+  api_key: "your api_key"
+  api_secret: "your api_secret"
+  access_token: "your access_token"
+  # NIFTY 50 instrument token for Kite Connect
+  instrument_token: 256265
+  exchange: "NSE"
+  tradingsymbol: "NIFTY 50"
+
+# ── Instrument Configuration ─────────────────────────────────────────────────
+# Defines WHAT you are trading/analyzing.
+# type: equity | index | futures | options | mutual_fund
+instrument:
+  type: "index"
+  symbol: "NIFTY 50"
+  instrument_token: 256265
+  exchange: "NSE"
+  timeframe: "minute"         # minute | day
+  # expiry: "2026-03-26"      # For F&O only
+  # strike: 22000              # For options only
+  # option_type: "CE"          # CE | PE (for options only)
+
+# ── Analysis Mode ────────────────────────────────────────────────────────────
+analysis:
+  mode: "backtest"             # backtest | analysis
+
+# ── Data Settings ────────────────────────────────────────────────────────────
+data:
+  years: 10
+  interval: "minute"
+  raw_dir: "data/raw"
+  processed_dir: "data/processed"
+  enable_cache: true
+  cache_expiry_hours: 24
+
+# ── Strategy Configuration ───────────────────────────────────────────────────
+# name: must match a key in STRATEGY_REGISTRY (run --list-strategies to see all)
+# params: strategy-specific parameters (optional overrides)
+strategy:
+  name: "btst_supertrend_breakout"
+  params:
+    supertrend_period: 10
+    supertrend_multiplier: 2.0
+
+# ── Backtest Execution Parameters ────────────────────────────────────────────
+backtest:
+  initial_capital: 1000000.0
+  slippage: 0.5
+  brokerage: 20.0
+  lot_size: 50
+
+# ── Output Settings ──────────────────────────────────────────────────────────
+output:
+  base_dir: "outputs"
+  save_trades_csv: true
+  save_metrics_json: true
+  save_metrics_csv: true
+  save_plots_html: true
+
+# ── Logging ──────────────────────────────────────────────────────────────────
+logging:
+  level: "INFO"
+  log_to_file: true
+  log_dir: "outputs"
+
+
+# =============================================================================
+# CONFIGURATION TEMPLATES (copy, uncomment, and modify)
+# =============================================================================
+
+# ── TEMPLATE 1: Equity - RSI Mean Reversion ──────────────────────────────────
+# instrument:
+#   type: "equity"
+#   symbol: "RELIANCE"
+#   instrument_token: 738561         # Kite token for RELIANCE
+#   exchange: "NSE"
+#   timeframe: "minute"
+#
+# strategy:
+#   name: "rsi_mean_reversion"
+#   params: {}
+#
+# backtest:
+#   initial_capital: 500000.0
+#   slippage: 0.1
+#   brokerage: 20.0
+#   lot_size: 1                      # Cash segment: lot size = 1
+
+# ── TEMPLATE 2: Equity - MA Crossover ────────────────────────────────────────
+# instrument:
+#   type: "equity"
+#   symbol: "TCS"
+#   instrument_token: 2953217
+#   exchange: "NSE"
+#   timeframe: "day"                 # Daily timeframe for MA strategies
+#
+# strategy:
+#   name: "ma_crossover_50_200"
+#   params: {}
+#
+# backtest:
+#   initial_capital: 1000000.0
+#   slippage: 0.5
+#   brokerage: 20.0
+#   lot_size: 1
+
+# ── TEMPLATE 3: Index - Donchian Breakout ────────────────────────────────────
+# instrument:
+#   type: "index"
+#   symbol: "NIFTY 50"
+#   instrument_token: 256265
+#   exchange: "NSE"
+#   timeframe: "minute"
+#
+# strategy:
+#   name: "donchian_breakout"
+#   params: {}
+#
+# backtest:
+#   initial_capital: 1000000.0
+#   slippage: 0.5
+#   brokerage: 20.0
+#   lot_size: 50
+
+# ── TEMPLATE 4: Futures - EMA + Supertrend Trend Following ──────────────────
+instrument:
+  type: "futures"
+  symbol: "NIFTY"
+  instrument_token: 256265
+  exchange: "NFO"
+  timeframe: "minute"
+  expiry: "2026-03-26"
+#
+strategy:
+  name: "ema_supertrend_trend"
+  params:
+    supertrend_period: 10
+    supertrend_multiplier: 2.0
+#
+backtest:
+  initial_capital: 2000000.0
+  slippage: 1.0
+  brokerage: 20.0
+  lot_size: 50
+
+# ── TEMPLATE 5: Futures - VWAP Reversion ────────────────────────────────────
+# instrument:
+#   type: "futures"
+#   symbol: "BANKNIFTY"
+#   instrument_token: 260105
+#   exchange: "NFO"
+#   timeframe: "minute"
+#   expiry: "2026-03-26"
+#
+# strategy:
+#   name: "vwap_reversion"
+#   params: {}
+#
+# backtest:
+#   initial_capital: 2000000.0
+#   slippage: 2.0
+#   brokerage: 20.0
+#   lot_size: 30
+
+# ── TEMPLATE 6: Options - Short Straddle ────────────────────────────────────
+# instrument:
+#   type: "options"
+#   symbol: "NIFTY"
+#   instrument_token: 256265
+#   exchange: "NFO"
+#   timeframe: "minute"
+#   expiry: "2026-03-27"
+#   strike: 22000
+#   option_type: "CE"
+#
+# strategy:
+#   name: "short_straddle"
+#   params: {}
+#
+# backtest:
+#   initial_capital: 2000000.0
+#   slippage: 2.0
+#   brokerage: 20.0
+#   lot_size: 50
+
+# ── TEMPLATE 7: Options - Iron Condor ───────────────────────────────────────
+# instrument:
+#   type: "options"
+#   symbol: "NIFTY"
+#   instrument_token: 256265
+#   exchange: "NFO"
+#   timeframe: "minute"
+#
+# strategy:
+#   name: "iron_condor"
+#   params: {}
+#
+# backtest:
+#   initial_capital: 2000000.0
+#   slippage: 2.0
+#   brokerage: 20.0
+#   lot_size: 50
+
+# ── TEMPLATE 8: Options - Delta Neutral ─────────────────────────────────────
+# instrument:
+#   type: "options"
+#   symbol: "NIFTY"
+#   instrument_token: 256265
+#   exchange: "NFO"
+#   timeframe: "minute"
+#
+# strategy:
+#   name: "delta_neutral"
+#   params: {}
+#
+# backtest:
+#   initial_capital: 3000000.0
+#   slippage: 2.0
+#   brokerage: 20.0
+#   lot_size: 50
+
+# ── TEMPLATE 9: Mutual Fund - CAGR Analysis ────────────────────────────────
+# instrument:
+#   type: "mutual_fund"
+#   symbol: "AXIS_BLUECHIP"
+#   instrument_token: 0               # Not used for MF
+#   exchange: "MF"
+#   timeframe: "day"
+#
+# analysis:
+#   mode: "analysis"
+#
+# strategy:
+#   name: "mf_cagr_analysis"
+#   params: {}
+#
+# backtest:
+#   initial_capital: 100000.0
+#   slippage: 0
+#   brokerage: 0
+#   lot_size: 1
+
+# ── TEMPLATE 10: Mutual Fund - Rolling Returns ─────────────────────────────
+# instrument:
+#   type: "mutual_fund"
+#   symbol: "PARAG_PARIKH_FLEXI"
+#   instrument_token: 0
+#   exchange: "MF"
+#   timeframe: "day"
+#
+# analysis:
+#   mode: "analysis"
+#
+# strategy:
+#   name: "mf_rolling_returns"
+#   params: {}
+#
+# backtest:
+#   initial_capital: 100000.0
+#   slippage: 0
+#   brokerage: 0
+#   lot_size: 1
+
+# ── TEMPLATE 11: Mutual Fund - Drawdown & Risk Analysis ────────────────────
+# instrument:
+#   type: "mutual_fund"
+#   symbol: "HDFC_INDEX_NIFTY50"
+#   instrument_token: 0
+#   exchange: "MF"
+#   timeframe: "day"
+#
+# analysis:
+#   mode: "analysis"
+#
+# strategy:
+#   name: "mf_drawdown_risk"
+#   params: {}
+#
+# backtest:
+#   initial_capital: 100000.0
+#   slippage: 0
+#   brokerage: 0
+#   lot_size: 1
